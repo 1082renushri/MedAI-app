@@ -1,0 +1,214 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= GLOBAL ================= */
+body {
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 48px 24px;
+}
+
+/* ================= TYPOGRAPHY ================= */
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f2a44;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e3a5f;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 44px;
+}
+
+/* ================= UPLOAD CARD ================= */
+.upload-card {
+  max-width: 440px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 14px;
+  border: 1px solid #e6edf5;
+  box-shadow: 0 12px 30px rgba(15, 42, 68, 0.08);
+  text-align: center;
+}
+
+.upload-card img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e6edf5;
+  margin-bottom: 16px;
+}
+
+/* ================= FILE INPUT ================= */
+.upload-card input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1.8px dashed #b6c6d9;
+  background: #fafcff;
+  color: #334155;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.upload-card input[type="file"]:hover {
+  border-color: #2563eb;
+}
+
+/* ================= BUTTON ================= */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  background: #2563eb;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  background: #1e4fd8;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ================= RESULTS GRID ================= */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 28px;
+  margin-top: 44px;
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #e6edf5;
+  box-shadow: 0 10px 26px rgba(15, 42, 68, 0.07);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e6edf5;
+}
+
+/* ================= MODEL CARDS ================= */
+.model-card {
+  text-align: center;
+}
+
+.model-card .value {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #0f172a;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.badge.green {
+  background: #eaf7ef;
+  color: #166534;
+}
+
+.badge.yellow {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.badge.red {
+  background: #fdecec;
+  color: #991b1b;
+}
+
+/* ================= RISK BAR ================= */
+.risk-bar {
+  height: 10px;
+  background: #e5ebf2;
+  border-radius: 10px;
+  margin-top: 14px;
+  overflow: hidden;
+}
+
+.risk-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.6s ease;
+  background: linear-gradient(90deg, #22c55e, #facc15, #ef4444);
+}
+
+/* ================= STATUS ================= */
+.value.ok {
+  color: #166534;
+}
+
+.value.warn {
+  color: #991b1b;
+}
+
+/* ================= LINKS ================= */
+.back-link {
+  display: inline-block;
+  margin-top: 36px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.actions {
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}

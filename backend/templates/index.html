@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colonoscopy AI Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🧠 Colonoscopy AI Diagnosis</h1>
+            <p class="subtitle">
+                Upload a colonoscopy image to detect abnormalities using AI
+            </p>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label class="file-upload">
+                    <input type="file" name="image" required>
+                    <span>📁 Choose Image</span>
+                </label>
+
+                <button type="submit">Analyze Image</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>Powered by Deep Learning • Medical AI</p>
+        </footer>
+    </div>
+</body>
+</html>

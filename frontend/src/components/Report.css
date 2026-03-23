@@ -1,0 +1,81 @@
+.report-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.report-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 820px;
+  padding: 32px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.report-title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #0f172a;
+  margin-bottom: 28px;
+}
+
+.report-section {
+  margin-bottom: 22px;
+}
+
+.report-section h2 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+.report-section p {
+  font-size: 0.95rem;
+  color: #334155;
+  margin: 6px 0;
+}
+
+.report-section strong {
+  color: #020617;
+}
+
+.highlight {
+  background: #fefce8;
+  border-left: 4px solid #ca8a04;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 12px;
+}
+
+.report-actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.download-btn {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #1e40af;
+}

@@ -1,0 +1,99 @@
+.preview-wrapper {
+  position: relative;
+}
+
+.preview-image {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 12px;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #64748b;
+}
+
+.file-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* 🔥 FULL SCREEN LOADING */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-box {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.loading-box h2 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  color: #1f2937;
+}
+
+.loading-box p {
+  margin-top: 6px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* 🔄 SPINNER */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

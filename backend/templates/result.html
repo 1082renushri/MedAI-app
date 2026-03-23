@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>AI Colonoscopy Analysis Report</h1>
+<p class="subtitle center">Automated detection, classification, and risk assessment</p>
+
+<div class="results-grid">
+
+    <!-- YOLO IMAGE -->
+    <div class="card">
+        <h2>🟦 Polyp Detection (YOLO)</h2>
+        <img src="/{{ image_path }}" alt="YOLO Result">
+        <p class="card-note">Detected regions highlighted using object detection</p>
+    </div>
+
+    <!-- DENSENET -->
+    <div class="card model-card">
+        <h2>🧠 DenseNet</h2>
+        <div class="value">{{ dense.label }}</div>
+        <div class="badge green">
+            Confidence: {{ dense.confidence }}
+        </div>
+    </div>
+
+    <!-- RESNET -->
+    <div class="card model-card">
+        <h2>🧠 ResNet</h2>
+        <div class="value">{{ res.label }}</div>
+        <div class="badge green">
+            Confidence: {{ res.confidence }}
+        </div>
+    </div>
+
+    <!-- AGREEMENT -->
+    <div class="card model-card highlight">
+        <h2>📊 Model Consensus</h2>
+        <div class="value {{ 'ok' if agreement else 'warn' }}">
+            {{ "YES" if agreement else "NO" }}
+        </div>
+        <div class="badge {{ 'green' if agreement else 'red' }}">
+            {{ "Consistent Diagnosis" if agreement else "Prediction Conflict" }}
+        </div>
+    </div>
+
+    <!-- CANCER RISK -->
+    <div class="card model-card risk-card">
+        <h2>⚠ Cancer Risk Estimation</h2>
+
+        <div class="value">{{ cancer.risk.level }}</div>
+        <div class="badge red">
+            Risk Score: {{ cancer.risk.score }}%
+        </div>
+
+        <div class="risk-bar">
+            <span class="risk-fill" data-risk="{{ cancer.risk.score }}"></span>
+        </div>
+
+        <p class="risk-text">
+            Estimated Tumor Growth Probability:
+            <b>{{ cancer.growth }}%</b>
+        </p>
+    </div>
+
+</div>
+
+<div class="actions">
+    <a class="back-link" href="/">🔄 Analyze Another Image</a>
+</div>
+
+<script>
+document.querySelectorAll(".risk-fill").forEach(el => {
+    el.style.width = el.dataset.risk + "%";
+});
+</script>
+
+</body>
+</html>

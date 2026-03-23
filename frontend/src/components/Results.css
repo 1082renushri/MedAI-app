@@ -1,0 +1,245 @@
+/* PAGE BACKGROUND */
+.results-container {
+  background: #f8fafc;
+  min-height: calc(100vh - 64px);
+  padding: 32px;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* MAIN LAYOUT */
+.results-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+}
+
+/* ---------- YOLO SECTION ---------- */
+.yolo-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.yolo-box {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.yolo-box img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ---------- ANALYSIS SECTION ---------- */
+.analysis-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analysis-title {
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+/* MODEL CARD */
+.model-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+/* HEADER */
+.model-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.model-header h3 {
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+/* TAGS */
+.model-tag {
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.model-tag.primary {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.model-tag.secondary {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+/* LABEL */
+.label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #020617;
+  margin-bottom: 10px;
+}
+
+/* CONFIDENCE ROW */
+.confidence-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.confidence-value {
+  font-weight: 600;
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* Fade in (general) */
+.fade-in {
+  animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide from right (lesion card) */
+.slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide up (DenseNet / ResNet cards) */
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= LOADING STATE ================= */
+
+.loading-box {
+  background: #ffffff;
+  border: 1px dashed #cbd5f5;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #475569;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= LESION STATES ================= */
+
+.label.positive {
+  color: #b91c1c; /* red */
+}
+
+.label.negative {
+  color: #15803d; /* green */
+}
+
+/* No lesion info box */
+.no-lesion-message {
+  background: #ecfdf5;
+  border-left: 4px solid #16a34a;
+  border-radius: 10px;
+  padding: 14px;
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+
+/* ===== NEW PAGE FOR CANCER RISK ===== */
+.risk-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+
+.risk-center {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.spinner.large {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+}
