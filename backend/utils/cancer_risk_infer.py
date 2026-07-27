@@ -4,14 +4,10 @@ import timm
 from torchvision import transforms
 from PIL import Image
 
-# -------------------------
-# Device
-# -------------------------
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# -------------------------
-# Build DenseNet121 (Cancer Risk Model)
-# -------------------------
+
 class TumorRiskGrowthNet(nn.Module):
     def __init__(self):
         super().__init__()
@@ -35,9 +31,7 @@ class TumorRiskGrowthNet(nn.Module):
 
 model = TumorRiskGrowthNet()
 
-# -------------------------
-# Load trained weights
-# -------------------------
+
 state_dict = torch.load(
     "models/tumor_risk_growth_densenet121_last.pth",
     map_location=device
@@ -58,9 +52,7 @@ transform = transforms.Compose([
     )
 ])
 
-# -------------------------
-# Inference function
-# -------------------------
+
 def predict_cancer_risk(image_path: str):
     image = Image.open(image_path).convert("RGB")
     image = transform(image).unsqueeze(0).to(device)
@@ -71,7 +63,7 @@ def predict_cancer_risk(image_path: str):
     risk = risk_p.item()
     growth = growth_p.item()
 
-    # 🔬 Risk categorization (calibrated)
+
     if risk < 0.15:
         risk_label = "Low Cancer Risk"
     elif risk < 0.35:
@@ -79,8 +71,7 @@ def predict_cancer_risk(image_path: str):
     else:
         risk_label = "High Cancer Risk"
 
-    # Approximate size in mm (visual estimate)
-    estimated_mm = round(growth * 80, 2)  # colon width ≈ 80 mm
+    estimated_mm = round(growth * 80, 2) 
 
     return {
         "risk_label": risk_label,
