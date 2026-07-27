@@ -4,9 +4,7 @@ import timm
 from torchvision import transforms
 from PIL import Image
 
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 
 class TumorRiskGrowthNet(nn.Module):
     def __init__(self):
@@ -40,9 +38,7 @@ model.load_state_dict(state_dict)
 model.to(device)
 model.eval()
 
-# -------------------------
-# Preprocessing
-# -------------------------
+
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
