@@ -10,7 +10,7 @@ from utils.lesion_infer import predict_lesion
 from utils.densenet_infer import predict_densenet
 from utils.resnet_infer import predict_resnet
 from utils.efficientnet_infer import predict_efficientnet
-from utils.cancer_risk_infer import predict_cancer_risk   # ✅ NEW
+from utils.cancer_risk_infer import predict_cancer_risk   
 
 app = Flask(__name__)
 CORS(app)
