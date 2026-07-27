@@ -1,25 +1,22 @@
 import mysql.connector
 
-# ================= MYSQL CONFIG =================
+
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "Renu@2005"   # 🔴 CHANGE IF NEEDED
+    "password": "Renu@2005"   
 }
 
 DB_NAME = "polyp_ai"
-# ===============================================
-
 
 def create_database():
     conn = mysql.connector.connect(**DB_CONFIG)
     cursor = conn.cursor()
 
-    # -------- CREATE DATABASE --------
+
     cursor.execute(f"CREATE DATABASE IF NOT EXISTS {DB_NAME}")
     cursor.execute(f"USE {DB_NAME}")
 
-    # ================= PATIENTS =================
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS patients (
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +30,7 @@ def create_database():
     """)
 
 
-    # ================= VISITS =================
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS visits (
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,7 +42,7 @@ def create_database():
         )
     """)
 
-    # ================= REPORTS =================
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS reports (
             id INT AUTO_INCREMENT PRIMARY KEY,
