@@ -44,15 +44,11 @@ def analyze():
     )
     patient = cursor.fetchone()
 
-    # 🔥 patient safety
     if not patient:
         cursor.close()
         conn.close()
         return jsonify({"error": "Patient not registered"}), 400
 
-    # =========================
-    # NO LESION CASE
-    # =========================
     if lesion["label"] == "No Lesion Detected":
         cursor.execute("""
             INSERT INTO reports (patient_id, lesion_status)
@@ -69,22 +65,15 @@ def analyze():
             "message": "No lesion detected. Further analysis not required."
         })
 
-    # =========================
-    # YOLO DETECTION
-    # =========================
     detections, output_image = run_yolo(image_path)
-    # output_image = static/results/result.jpg
-
-    # 🔹 ADD LOGIC: make unique copy of YOLO output
+   
     import time, shutil
     timestamp = int(time.time())
     unique_yolo_name = f"yolo_{patient['id']}_{timestamp}.jpg"
     unique_yolo_path = f"{RESULT_FOLDER}/{unique_yolo_name}"
     shutil.copy(output_image, unique_yolo_path)
 
-    # =========================
-    # OTHER MODELS
-    # =========================
+ 
     dense = predict_densenet(image_path)
     res = predict_resnet(image_path)
     efficient = predict_efficientnet(image_path)
@@ -95,9 +84,7 @@ def analyze():
     if dense["label"] == "Tumor":
         cancer_risk = predict_cancer_risk(image_path)
 
-    # =========================
-    # DB INSERT (WITH YOLO IMAGE)
-    # =========================
+
     cursor.execute("""
         INSERT INTO reports (
             patient_id,
@@ -112,7 +99,7 @@ def analyze():
     """, (
         patient["id"],
         lesion["label"],
-        unique_yolo_path,   # ✅ STORED PERMANENTLY
+        unique_yolo_path,   
         dense["label"],
         cancer_risk["risk_label"] if cancer_risk else None,
         cancer_risk["risk_probability"] if cancer_risk else None,
@@ -125,7 +112,7 @@ def analyze():
     conn.close()
 
     return jsonify({
-        "image_path": unique_yolo_path,  # ✅ send saved image
+        "image_path": unique_yolo_path,  
         "lesion": lesion,
         "detections": detections,
         "dense": dense,
@@ -197,7 +184,7 @@ def check_uhi():
         print("➡️ ROUTE: history")
         return jsonify({
             "route": "history",
-            "patient_id": result[0]   # 👈 this is patients.id (1,2,3…)
+            "patient_id": result[0]  
         })
 
 
@@ -233,7 +220,7 @@ def register_patient():
         cursor.close()
         conn.close()
 
-        # 🔥 THIS IS WHAT YOU WERE MISSING
+    
         return jsonify({
             "success": True,
             "message": "Patient registered successfully"
